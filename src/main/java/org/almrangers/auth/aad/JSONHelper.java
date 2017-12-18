@@ -34,15 +34,12 @@ public class JSONHelper {
    * This method parses an JSON Array out of a collection of JSON Objects
    * within a string.
    *
-   * @param jsonObject
-   *            The JSON String that holds the collection.
+   * @param jsonObject The JSON String that holds the collection.
    * @return An JSON Array that would contains all the collection object.
    * @throws Exception
    */
   public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) {
-    JSONArray jsonArray = new JSONArray();
-    jsonArray = jsonObject.optJSONObject("responseMsg").optJSONArray("value");
-    return jsonArray;
+    return jsonObject.optJSONObject("responseMsg").optJSONArray("value");
   }
 
 
@@ -50,12 +47,9 @@ public class JSONHelper {
    * This is a generic method that copies the simple attribute values from an
    * argument jsonObject to an argument generic object.
    *
-   * @param jsonObject
-   *            The jsonObject from where the attributes are to be copied.
-   * @param destObject
-   *            The object where the attributes should be copied into.
-   * @throws Exception
-   *             Throws a Exception when the operation are unsuccessful.
+   * @param jsonObject The jsonObject from where the attributes are to be copied.
+   * @param destObject The object where the attributes should be copied into.
+   * @throws Exception Throws a Exception when the operation are unsuccessful.
    */
   public static <T> void convertJSONObjectToDirectoryObject(JSONObject jsonObject, T destObject) throws Exception {
 

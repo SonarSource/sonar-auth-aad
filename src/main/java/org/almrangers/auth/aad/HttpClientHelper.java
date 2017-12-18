@@ -55,7 +55,6 @@ public class HttpClientHelper {
    *
    * @param responseCode
    * @param goodRespStr
-   *
    * @return
    * @throws JSONException
    */
