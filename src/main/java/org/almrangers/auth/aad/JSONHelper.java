@@ -46,7 +46,7 @@ public class JSONHelper {
    * @return An JSON Array that would contains all the collection object.
    * @throws Exception
    */
-  public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) throws Exception {
+  public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) {
     JSONArray jsonArray = new JSONArray();
     jsonArray = jsonObject.optJSONObject("responseMsg").optJSONArray("value");
     return jsonArray;
@@ -60,7 +60,7 @@ public class JSONHelper {
    * @return An JSON Object that would contains the DirectoryObject.
    * @throws Exception
    */
-  public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) throws Exception {
+  public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) {
     JSONObject jObj = new JSONObject();
     jObj = jsonObject.optJSONObject("responseMsg");
     return jObj;
@@ -74,7 +74,7 @@ public class JSONHelper {
    * @return The skipToken.
    * @throws Exception
    */
-  public static String fetchNextSkiptoken(JSONObject jsonObject) throws Exception {
+  public static String fetchNextSkiptoken(JSONObject jsonObject) {
     String skipToken = "";
     // Parse the skip token out of the string.
     skipToken = jsonObject.optJSONObject("responseMsg").optString("odata.nextLink");
@@ -92,7 +92,7 @@ public class JSONHelper {
    * @return
    * @throws Exception
    */
-  public static String fetchDeltaLink(JSONObject jsonObject) throws Exception {
+  public static String fetchDeltaLink(JSONObject jsonObject) {
     String deltaLink = "";
     // Parse the skip token out of the string.
     deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.deltaLink");
@@ -119,7 +119,7 @@ public class JSONHelper {
    * @throws Exception
    *             If there is any error processing the request.
    */
-  public static String createJSONString(HttpServletRequest request, String controller) throws Exception {
+  public static String createJSONString(HttpServletRequest request, String controller) {
     JSONObject obj = new JSONObject();
     try {
       Field[] allFields = Class.forName(
@@ -167,7 +167,7 @@ public class JSONHelper {
    * @return string format of this JSON obje
    * @throws Exception
    */
-  public static String createJSONString(String key, String value) throws Exception {
+  public static String createJSONString(String key, String value) {
 
     JSONObject obj = new JSONObject();
     try {
@@ -205,7 +205,7 @@ public class JSONHelper {
         destObject
           .getClass()
           .getMethod(String.format("set%s", WordUtils.capitalize(fieldList[i].getName())),
-            new Class[] {String.class})
+            String.class)
           .invoke(destObject, jsonObject.optString(fieldList[i].getName()));
       }
     }

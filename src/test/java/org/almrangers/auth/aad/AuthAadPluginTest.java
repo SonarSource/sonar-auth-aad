@@ -34,7 +34,7 @@ public class AuthAadPluginTest {
   AuthAadPlugin underTest = new AuthAadPlugin();
 
   @Test
-  public void test_extensions() throws Exception {
+  public void test_extensions() {
     assertThat(underTest.getExtensions()).hasSize(10);
   }
 

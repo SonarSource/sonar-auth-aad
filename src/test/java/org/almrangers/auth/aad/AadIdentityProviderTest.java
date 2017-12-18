@@ -46,7 +46,7 @@ public class AadIdentityProviderTest {
   AadIdentityProvider underTest = new AadIdentityProvider(aadSettings);
 
   @Test
-  public void check_fields() throws Exception {
+  public void check_fields() {
     assertThat(underTest.getKey()).isEqualTo("aad");
     assertThat(underTest.getName()).isEqualTo("Azure AD");
     assertThat(underTest.getDisplay().getIconPath()).isEqualTo("/static/authaad/azure.svg");
@@ -54,7 +54,7 @@ public class AadIdentityProviderTest {
   }
 
   @Test
-  public void init() throws Exception {
+  public void init() {
     setSettings(true);
     OAuth2IdentityProvider.InitContext context = mock(OAuth2IdentityProvider.InitContext.class);
     when(context.generateCsrfState()).thenReturn("state");
@@ -66,7 +66,7 @@ public class AadIdentityProviderTest {
   }
 
   @Test
-  public void is_enabled() throws Exception {
+  public void is_enabled() {
     settings.setProperty("sonar.auth.aad.clientId.secured", "id");
     settings.setProperty("sonar.auth.aad.clientSecret.secured", "secret");
     settings.setProperty("sonar.auth.aad.loginStrategy", AadSettings.LOGIN_STRATEGY_DEFAULT_VALUE);
