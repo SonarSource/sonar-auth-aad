@@ -25,4 +25,7 @@
  * SOFTWARE.
  */
 
+@ParametersAreNonnullByDefault
 package org.almrangers.auth.aad;
+
+import javax.annotation.ParametersAreNonnullByDefault;
