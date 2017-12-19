@@ -29,8 +29,8 @@ import org.json.JSONObject;
 
 public class HttpClientHelper {
 
-  public HttpClientHelper() {
-    super();
+  private HttpClientHelper() {
+    // Static methods
   }
 
   public static String getResponseStringFromConn(HttpURLConnection conn, boolean isSuccess) throws IOException {

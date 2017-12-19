@@ -130,9 +130,7 @@ public class AadIdentityProvider implements OAuth2IdentityProvider {
         .setEmail(aadUser.getDisplayableId());
       if (settings.enableGroupSync()) {
         userGroups = getUserGroupsMembership(result.getAccessToken(), result.getUserInfo().getUniqueId());
-        if (userGroups != null) {
-          userIdentityBuilder.setGroups(userGroups);
-        }
+        userIdentityBuilder.setGroups(userGroups);
       }
       context.authenticate(userIdentityBuilder.build());
       context.redirectToRequestedPage();
